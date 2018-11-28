@@ -25,8 +25,8 @@ const Layout = ({ children }) => (
         <Helmet
           title={data.site.siteMetadata.title}
           meta={[
-            { name: 'description', content: 'Sample' },
-            { name: 'keywords', content: 'sample, something' },
+            { name: 'description', content: 'Time zone difference tool for finding time to chat' },
+            { name: 'keywords', content: 'time zone, time difference, time calculator, chat, time zone chat, when to chat, whentochat, time overlap' },
           ]}
         >
           <html lang="en" />
