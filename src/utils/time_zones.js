@@ -8,7 +8,7 @@ var timeZones = {
 	},
 	fromLatLong: async function(lat,lng) {
     let promise = new Promise((resolve, reject) => {
-      fetch(`http://api.geonames.org/timezoneJSON?lat=${lat}&lng=${lng}&username=nwillson`)
+      fetch(`https://secure.geonames.org/timezoneJSON?lat=${lat}&lng=${lng}&username=nwillson`)
         .then(function(response) {
 				  resolve(response.json());
         });
