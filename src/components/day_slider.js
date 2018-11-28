@@ -45,7 +45,7 @@ class DaySlider extends Component {
   }
 
   render() {
-    const format = "h:mm a";
+    const format = this.props.timeFormat;
     return (
       <div className="time-slider">
         <div className="slider">

@@ -4,13 +4,9 @@ import 'moment-timezone';
 
 import timeHelper from '../utils/time_helper'
 
-const TIME24HR = "HH:mm";
-const TIME12HR = "h:mm a";
-
 class TimeTable extends Component {
 
   state = {
-    timeFormat: TIME12HR,
     locATimes: [],
     locBTimes: []
   }
@@ -35,30 +31,6 @@ class TimeTable extends Component {
     });
   }
 
-  toggleTimeFormat = () => {
-    switch(this.state.timeFormat){
-      case TIME24HR:
-        this.setState({timeFormat: TIME12HR});
-        break;
-      case TIME12HR:
-        this.setState({timeFormat: TIME24HR});
-        break;
-      default:
-        this.setState({timeFormat: TIME12HR});
-    }
-  }
-
-  timeFormatButtonLabel = () => {
-    switch(this.state.timeFormat){
-      case TIME24HR:
-        return "12-hour Time";
-      case TIME12HR:
-        return "24-hour Time";
-      default:
-        return "12-hour Time";
-    }
-  }
-
   generateDefaultTimes = (baseOffset, startThreshold, endThreshold) => {
     let baseTime = timeHelper.newUTCTime();
 
@@ -66,7 +38,6 @@ class TimeTable extends Component {
     let i, offset, active;
 
     for (i = 0; i < 24; i++) {
-
       offset = (i + Math.abs(baseOffset))%24;
       debugger
       active = (offset >= startThreshold) && (offset <= endThreshold) ? true : false;
@@ -83,13 +54,8 @@ class TimeTable extends Component {
     return times;
   }
 
-  toggleTimeActiveState = (msg, extra) => {
-    console.log(msg);
-    console.log(extra);
-  }
-
   render() {
-    const times = renderTimes(this.state.locATimes, this.state.locBTimes, this.state.timeFormat);
+    const times = renderTimes(this.state.locATimes, this.state.locBTimes, this.props.timeFormat);
     return (
       <div id="timeTable">
         <table>
@@ -103,9 +69,6 @@ class TimeTable extends Component {
             {times}
           </tbody>
         </table>
-        <div id="toggleTimeFormat">
-          <button onClick={this.toggleTimeFormat}>{this.timeFormatButtonLabel()}</button>
-        </div>
       </div>
     )
   }

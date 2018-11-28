@@ -653,14 +653,23 @@ h1 {
 #toggleTimeFormat button {
   display: block;
   margin: auto;
+  position: absolute;
+  right: 1em;
+  top: 1em;
+  width:  75px;
+  height: 75px;
+  padding: 10px;
+  outline: none;
+
   background-color: #E26A6A;
   color: white;
   border: solid 2px white;
-  padding: 10px;
-  -webkit-transition: color 0.2s, background-color 0.2s; /* Safari */
-  transition: width 0.2s, background-color 0.2s;
+  font-size: 0.8rem;
+  line-height: 1rem;
+
+  -webkit-transition: color 0.15s, background-color 0.1s; /* Safari */
+  transition: width 0.15s, background-color 0.1s;
   transition-timing-function: ease-out;
-  outline: none;
 }
 
 #toggleTimeFormat button:hover {
