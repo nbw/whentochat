@@ -32,6 +32,7 @@ const Layout = ({ children }) => (
           <html lang="en" />
           <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet" />
         </Helmet>
+      <div className='mainContainer' >
         <Header siteTitle={data.site.siteMetadata.title} siteSubtitle={data.site.siteMetadata.subtitle} />
         <div
           style={{
@@ -43,6 +44,7 @@ const Layout = ({ children }) => (
         >
           {children}
         </div>
+      </div>
       <Footer
         siteTitle={data.site.siteMetadata.title}
         email={data.site.siteMetadata.email}

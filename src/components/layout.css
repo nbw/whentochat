@@ -646,6 +646,10 @@ h1 {
   text-transform: uppercase;
 }
 
+.mainContainer {
+  min-height: calc(100vh - 140px);
+}
+
 #toggleTimeFormat button {
   display: block;
   margin: auto;
@@ -786,11 +790,11 @@ hr {
 }
 
 .footer {
-  bottom: 0;
+  height: 140px;
   display: block;
   margin: auto;
-  margin-top: 2em;
-  margin-bottom: 2em;
+  padding-top: 2em;
+  padding-bottom: 2em;
   max-width: 960px;
   font-size: 0.8rem;
   text-align: center;
