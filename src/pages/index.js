@@ -7,6 +7,9 @@ import DaySlider from '../components/day_slider'
 import gMaps from '../utils/gmaps'
 import timeZones from '../utils/time_zones'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faClock } from '@fortawesome/free-solid-svg-icons'
+
 const DEFAULT_START_TIME = 7;
 const DEFAULT_END_TIME = 22;
 const TIME24HR = "HH:mm";
@@ -135,7 +138,10 @@ class IndexPage extends Component {
             />
           </div>
           <div id="toggleTimeFormat">
-            <button onClick={this.toggleTimeFormat}>{this.timeFormatButtonLabel()}</button>
+            <button onClick={this.toggleTimeFormat}>
+              <FontAwesomeIcon icon={faClock} />&nbsp;
+              {this.timeFormatButtonLabel()}
+            </button>
           </div>
         </div>
         { this.state.loading && this.loadingSign() }

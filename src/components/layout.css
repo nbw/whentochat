@@ -650,16 +650,18 @@ h1 {
   min-height: calc(100vh - 140px);
 }
 
+#toggleTimeFormat {
+  margin-bottom: 2em;
+}
+
 #toggleTimeFormat button {
   display: block;
   margin: auto;
-  position: absolute;
   right: 1em;
   top: 1em;
-  width:  75px;
-  height: 75px;
   padding: 10px;
   outline: none;
+  vertical-align: middle;
 
   background-color: #E26A6A;
   color: white;
@@ -699,7 +701,7 @@ h1 {
   width: 410px;
 }
 
-.geosuggest__item:hover {
+.geosuggest__item--active, .geosuggest__item:hover {
   color: #E26A6A;
   background-color: white;
 }
@@ -712,11 +714,6 @@ h1 {
 	max-height: 0;
 	overflow: hidden;
 	border-width: 0;
-}
-
-.geosuggest__item--active {
-	background: #267dc0;
-	color: #fff;
 }
 
 @keyframes dotdotdot {
@@ -781,7 +778,7 @@ h1 {
   display: inline-block;
   width: 50%;
   vertical-align: top;
-  margin-bottom: 4em;
+  margin-bottom: 2em;
 }
 
 hr {
