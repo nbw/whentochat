@@ -38,8 +38,13 @@ class TimeTable extends Component {
     let i, offset, dayOffset, active;
 
     for (i = 0; i < 24; i++) {
+
       offset = (i + baseOffset)%24;
-      active = (offset >= startThreshold) && (offset <= endThreshold) ? true : false;
+
+      // If item receive class "active"
+      active = this.calcActive(offset, startThreshold, endThreshold);
+
+      // +/- 1 day
       dayOffset = this.calcDayOffset(i, baseOffset);
 
       times.push(
@@ -53,6 +58,14 @@ class TimeTable extends Component {
     }
 
     return times;
+  }
+
+  calcActive = (offset, startThreshold, endThreshold) => {
+    // Account for time wrap around
+    if (offset < 0)
+      offset = 24 + offset;
+
+    return (offset >= startThreshold) && (offset <= endThreshold) ? true : false;
   }
 
   calcDayOffset = (hour, offset) => {
