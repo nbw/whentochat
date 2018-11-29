@@ -9,6 +9,8 @@ import timeZones from '../utils/time_zones'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock } from '@fortawesome/free-solid-svg-icons'
+import { config } from '@fortawesome/fontawesome-svg-core'
+config.autoAddCss = false
 
 const DEFAULT_START_TIME = 7;
 const DEFAULT_END_TIME = 22;
