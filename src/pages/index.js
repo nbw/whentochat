@@ -55,16 +55,16 @@ class IndexPage extends Component {
     }
   }
 
-  calculateResults = async () => {
+  calculateResults = () => {
     this.setState({
       loading: true,
       showResults: false
     });
 
-    let timeZoneLocA = await timeZones.fromLocation(this.state.locationA);
-    let timeZoneLocB = await timeZones.fromLocation(this.state.locationB);
+    let timeZoneLocA = timeZones.fromLocation(this.state.locationA);
+    let timeZoneLocB = timeZones.fromLocation(this.state.locationB);
 
-    const offset = timeZoneLocB.dstOffset - timeZoneLocA.dstOffset;
+    const offset = timeZoneLocB - timeZoneLocA;
 
     this.setState({
       loading: false,

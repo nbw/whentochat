@@ -15,6 +15,13 @@ var gMaps = {
     } else {
       return "";
     }
+  },
+  utc_offset: function(response) {
+    if (response.gmaps) {
+      return response.gmaps.utc_offset;
+    } else {
+      return 0;
+    }
   }
 }
 
