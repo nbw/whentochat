@@ -106,19 +106,29 @@ const formatDays = (dayOffset) => {
   }
 }
 
-const renderTime = (timeA, timeB, format) => (
-  <tr key={timeA.offset}>
-    <td className={timeA.active ? "active" : ""} >
-      <Moment format={format} add={{ hours: timeA.offset}} tz="UTC">
-        {timeA.baseTime}
-      </Moment>
-    </td>
-    <td className={timeB.active ? "active" : ""}>
-      <Moment format={format} add={{ hours: timeB.offset}} tz="UTC">
-        {timeA.baseTime}
-      </Moment>{formatDays(timeB.dayOffset)}
-    </td>
-  </tr>
-);
+const renderTime = (timeA, timeB, format) => {
+  let timeAClass = timeA.active ? "active" : "";
+  let timeBClass = timeB.active ? "active" : "";
+
+  if (timeAClass && timeBClass) {
+    timeAClass += " match"
+    timeBClass += " match"
+  }
+
+  return (
+    <tr key={timeA.offset}>
+      <td className={timeAClass} >
+        <Moment format={format} add={{ hours: timeA.offset}} tz="UTC">
+          {timeA.baseTime}
+        </Moment>
+      </td>
+      <td className={timeBClass}>
+        <Moment format={format} add={{ hours: timeB.offset}} tz="UTC">
+          {timeA.baseTime}
+        </Moment>{formatDays(timeB.dayOffset)}
+      </td>
+    </tr>
+  )
+};
 
 export default TimeTable;

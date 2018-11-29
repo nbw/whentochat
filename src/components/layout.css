@@ -771,6 +771,11 @@ h1 {
 
 #timeTable td.active {
   color: #E26A6A;
+  background-color: rgba(255, 255, 255, 0.55);
+}
+
+#timeTable td.active.match {
+  color: #E26A6A;
   background-color: white;
 }
 
