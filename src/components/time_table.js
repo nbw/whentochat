@@ -35,23 +35,35 @@ class TimeTable extends Component {
     let baseTime = timeHelper.newUTCTime();
 
     let times = [];
-    let i, offset, active;
+    let i, offset, dayOffset, active;
 
     for (i = 0; i < 24; i++) {
-      offset = (i + Math.abs(baseOffset))%24;
-      debugger
+      offset = (i + baseOffset)%24;
       active = (offset >= startThreshold) && (offset <= endThreshold) ? true : false;
+      dayOffset = this.calcDayOffset(i, baseOffset);
 
       times.push(
         {
           baseTime: baseTime,
           offset: offset,
+          dayOffset: dayOffset,
           active: active
         }
       );
     }
 
     return times;
+  }
+
+  calcDayOffset = (hour, offset) => {
+    const res = hour + offset;
+    if(res >= 24) {
+      return 1;
+    } else if(res < 0) {
+      return -1;
+    } else {
+      return 0;
+    }
   }
 
   render() {
@@ -83,6 +95,17 @@ const renderTimes = (timesA, timesB, format) => {
   return times;
 };
 
+const formatDays = (dayOffset) => {
+  if (dayOffset === 1) {
+    return <span className="day">(+1 day)</span>;
+  } else if (dayOffset === -1) {
+    return <span className="day">(-1 day)</span>;
+  } else if (dayOffset === -1) {
+  } else {
+    return "";
+  }
+}
+
 const renderTime = (timeA, timeB, format) => (
   <tr key={timeA.offset}>
     <td className={timeA.active ? "active" : ""} >
@@ -93,7 +116,7 @@ const renderTime = (timeA, timeB, format) => (
     <td className={timeB.active ? "active" : ""}>
       <Moment format={format} add={{ hours: timeB.offset}} tz="UTC">
         {timeA.baseTime}
-      </Moment>
+      </Moment>{formatDays(timeB.dayOffset)}
     </td>
   </tr>
 );

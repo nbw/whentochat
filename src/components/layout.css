@@ -774,6 +774,17 @@ h1 {
   background-color: white;
 }
 
+#timeTable td > * {
+  vertical-align: middle;
+  display: inline-block;
+}
+
+#timeTable .day {
+  font-size: 0.7rem;
+  padding-left: 0.5rem;
+}
+
+
 .locationPicker {
   display: inline-block;
   width: 50%;
