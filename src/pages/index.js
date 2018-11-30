@@ -118,6 +118,7 @@ class IndexPage extends Component {
           <div className="locationPicker">
             <LocationPicker
               stateCallback={this.updateLocationA}
+              placeHolder="your location"
             />
             <DaySlider
               start={this.state.locAStart}
@@ -130,6 +131,7 @@ class IndexPage extends Component {
           <div className="locationPicker">
             <LocationPicker
               stateCallback={this.updateLocationB}
+              placeHolder="their location"
             />
             <DaySlider
               start={this.state.locBStart}
