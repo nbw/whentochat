@@ -31,7 +31,10 @@ const Layout = ({ children }) => (
           ]}
         >
           <html lang="en" />
-          <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet" />
+					<link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet" />
+					<meta charset="utf-8"/>
+					<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+					<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         </Helmet>
       <div className='mainContainer' >
         <Header siteTitle={data.site.siteMetadata.title} siteSubtitle={data.site.siteMetadata.subtitle} />

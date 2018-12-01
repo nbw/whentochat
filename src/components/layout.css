@@ -863,3 +863,28 @@ hr {
 }
 
 
+@media only screen and (max-width: 900px) {
+	.locationPicker {
+		display: block;
+		margin:auto;
+		width: 100%;
+		margin-bottom: 6em;
+	}
+	.geosuggest__input-wrapper input {
+		margin: auto;
+		padding: 1rem;
+		width: 100%;
+	}
+	.geosuggest__item {
+		width: 100%,
+	}
+
+	.time-slider {
+		width: 100%;
+	}
+	.quote {
+		font-size: 1.5rem;
+	}
+}
+
+
