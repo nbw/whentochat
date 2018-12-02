@@ -755,6 +755,7 @@ h1 {
 
 #timeTable {
   margin-top: 3em;
+  margin-bottom: 3em;
 }
 
 #timeTable th {
@@ -862,6 +863,106 @@ hr {
   text-align: center;
 }
 
+#share {
+	margin-bottom: 2em;
+}
+#share .share {
+	width: 140px;
+	margin: auto;
+}
+
+#share .shareBtn {
+  display: block;
+  margin: auto;
+  right: 1em;
+  top: 1em;
+  padding: 0.5em 1em 0.5em 1em;
+  outline: none;
+  vertical-align: middle;
+
+  background-color: #E26A6A;
+  color: white;
+  border: solid 2px white;
+  font-size: 1.1rem;
+  line-height: 1rem;
+
+  -webkit-transition: color 0.15s, background-color 0.1s; /* Safari */
+  transition: color 0.15s, background-color 0.1s;
+  transition-timing-function: ease-out;
+}
+
+#share .shareBtn:hover, #share .active .shareBtn {
+  color: #E26A6A;
+  background-color: white;
+}
+#share .active .shareBtn {
+display: none;
+}
+#share .share.active{
+	background-color: white;
+	width: 600px;
+	margin: auto;
+	padding: 0.5em 0.5em 0.5em 0.5em;
+}
+
+#share .url, #share .copy {
+	display: none;
+}
+
+#share .active .url, #share .active .copy {
+	display: block;
+}
+
+#share .url {
+	margin: 1em;
+}
+
+#share .url input {
+	font-size: 0.8rem;
+	text-align: center;
+	text-overflow: ellipsis;
+	color: white;
+	background-color: #E26A6A;
+	border: none;
+	display: block;
+	margin: auto;
+	width: 100%;
+	padding: 0.5em;
+}
+
+#share .active .copy {
+	text-align: center;
+}
+#share .active .copy button {
+	min-width: 100px;
+	display: inline-block;
+	margin: 5px;
+
+  right: 1em;
+  top: 1em;
+  padding: 10px;
+  outline: none;
+  vertical-align: middle;
+
+  background-color: white;
+  color: #E26A6A;
+  border: solid 2px #E26A6A;
+  font-size: 1rem;
+  line-height: 1rem;
+
+  -webkit-transition: color 0.15s, background-color 0.1s; /* Safari */
+  transition: color 0.15s, background-color 0.1s;
+  transition-timing-function: ease-out;
+}
+
+#share .active .copy button:hover {
+  color: white;
+  background-color: #E26A6A;
+}
+
+#share .active .copy button:active {
+	font-weight: bold;
+}
 
 @media only screen and (max-width: 900px) {
 	.locationPicker {

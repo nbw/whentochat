@@ -4,8 +4,9 @@ import Layout from '../components/layout'
 import TimeTable from '../components/time_table'
 import LocationPicker from '../components/location_picker'
 import DaySlider from '../components/day_slider'
+import Share from '../components/share'
 import gMaps from '../utils/gmaps'
-import timeZones from '../utils/time_zones'
+import URLCoder from '../utils/url'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock } from '@fortawesome/free-solid-svg-icons'
@@ -17,18 +18,18 @@ const DEFAULT_END_TIME = 22;
 const TIME24HR = "HH:mm";
 const TIME12HR = "h:mm a";
 
+// Pull default state from the URL if available.
+const urlCoder = URLCoder.fromURL(window.location);
+
 class IndexPage extends Component {
   state = {
     timeFormat: TIME12HR,
-    locationA: {},
-    locAStart: DEFAULT_START_TIME,
-    locAEnd:   DEFAULT_END_TIME,
-    locationB: {},
-    locBStart: DEFAULT_START_TIME,
-    locBEnd:   DEFAULT_END_TIME,
-    showResults: false,
-    offset: 0,
-    loading: false
+    locA: urlCoder.locA || {},
+    locAStart: urlCoder.locAStart || DEFAULT_START_TIME,
+    locAEnd:   urlCoder.locAEnd   || DEFAULT_END_TIME,
+    locB: urlCoder.locB || {},
+    locBStart: urlCoder.locBStart || DEFAULT_START_TIME,
+    locBEnd:   urlCoder.locBEnd || DEFAULT_END_TIME,
   }
 
   update = (name, value) => {
@@ -38,53 +39,37 @@ class IndexPage extends Component {
   }
 
   updateLocationA = (suggest) => {
-    this.setState({locationA: suggest});
-    if (this.bothLocationsSelected())
-      this.calculateResults();
+    this.setState({
+      locA: {
+        name: gMaps.locationName(suggest),
+        utc_offset: gMaps.utc_offset(suggest)
+      }
+    });
   }
 
   updateLocationB = (suggest) => {
-    this.setState({locationB: suggest});
-    if (this.bothLocationsSelected())
-      this.calculateResults();
+    this.setState({
+      locB: {
+        name: gMaps.locationName(suggest),
+        utc_offset: gMaps.utc_offset(suggest)
+      }
+    });
   }
 
   bothLocationsSelected = () => {
-    if (gMaps.location(this.state.locationA) && gMaps.location(this.state.locationB)) {
+    if ((this.state.locA) && (this.state.locB)) {
       return true;
     } else {
       return false;
     }
   }
 
-  calculateResults = () => {
-    this.setState({
-      loading: true,
-      showResults: false
-    });
-
-    let timeZoneLocA = timeZones.fromLocation(this.state.locationA);
-    let timeZoneLocB = timeZones.fromLocation(this.state.locationB);
-
-    const offset = timeZoneLocB - timeZoneLocA;
-
-    this.setState({
-      loading: false,
-      showResults: true,
-      offset: offset
-    });
-  }
-
   locationAName = () => {
-    return gMaps.locationName(this.state.locationA);
+    return this.state.locA.name || '';
   }
 
   locationBName = () => {
-    return gMaps.locationName(this.state.locationB);
-  }
-
-  loadingSign = () => {
-    return <div className="loading"></div>;
+    return this.state.locB.name || '';
   }
 
   toggleTimeFormat = () => {
@@ -111,6 +96,23 @@ class IndexPage extends Component {
     }
   }
 
+  generateShareLink = () => {
+    let u = URLCoder.fromState(this.state);
+    return u.url;
+  }
+
+  offset = () => {
+    if (this.bothLocationsSelected()) {
+      let timeZoneLocA = this.state.locA.utc_offset;
+      let timeZoneLocB = this.state.locB.utc_offset;
+
+      return (timeZoneLocB - timeZoneLocA)/60;
+    } else {
+      return 0;
+    }
+  }
+
+
   render() {
     return (
       <Layout>
@@ -119,6 +121,7 @@ class IndexPage extends Component {
             <LocationPicker
               stateCallback={this.updateLocationA}
               placeHolder="your location"
+              initialValue={this.locationAName()}
             />
             <DaySlider
               start={this.state.locAStart}
@@ -132,6 +135,7 @@ class IndexPage extends Component {
             <LocationPicker
               stateCallback={this.updateLocationB}
               placeHolder="their location"
+              initialValue={this.locationBName()}
             />
             <DaySlider
               start={this.state.locBStart}
@@ -147,12 +151,19 @@ class IndexPage extends Component {
               {this.timeFormatButtonLabel()}
             </button>
           </div>
+          <div
+            style={{
+              margin: '0 auto',
+              padding: '0px 1.0875rem 1.45rem',
+              paddingTop: 0,
+            }}
+          >
+          </div>
         </div>
-        { this.state.loading && this.loadingSign() }
-        { this.state.showResults &&
+        { Math.abs(this.offset()) > 0 &&
             <>
             <hr/>
-            <p className="quote">{this.locationAName()} and {this.locationBName()} are {Math.abs(this.state.offset)} hours apart.</p>
+            <p className="quote">{this.locationAName()} and {this.locationBName()} are {Math.abs(this.offset())} hours apart.</p>
             <hr/>
             <TimeTable
               locA={this.locationAName()}
@@ -161,8 +172,11 @@ class IndexPage extends Component {
               locB={this.locationBName()}
               locBStart={this.state.locBStart}
               locBEnd={this.state.locBEnd}
-              offset={this.state.offset}
+              offset={this.offset()}
               timeFormat={this.state.timeFormat}
+            />
+            <Share
+              generateLink={() => this.generateShareLink()}
             />
             </>
         }

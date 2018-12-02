@@ -14,6 +14,7 @@ class LocationPicker extends Component {
         <Geosuggest
           placeholder={this.props.placeHolder}
           onSuggestSelect={this.onSuggestSelect}
+          initialValue={this.props.initialValue}
         />
       </>
     )
