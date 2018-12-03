@@ -689,6 +689,7 @@ h1 {
   margin: auto;
   padding: 1rem;
   width: 410px;
+  line-height: 2.4rem;
 }
 
 .geosuggest__item {
