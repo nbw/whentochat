@@ -986,6 +986,9 @@ display: none;
 	.quote {
 		font-size: 1.5rem;
 	}
+	#share .share.active {
+		width: 100%;
+	}
 }
 
 
