@@ -58,6 +58,9 @@ class IndexPage extends Component {
         utc_offset: gMaps.utc_offset(suggest)
       }
     });
+
+    if (this.bothLocationsSelected())
+      this.scrollIntoView();
   }
 
   updateLocationB = (suggest) => {
@@ -67,6 +70,16 @@ class IndexPage extends Component {
         utc_offset: gMaps.utc_offset(suggest)
       }
     });
+
+    if (this.bothLocationsSelected())
+      this.scrollIntoView();
+  }
+
+  scrollIntoView = () => {
+    setTimeout(() => {
+      const viewer = this.refs.results;
+      viewer.scrollIntoView({block: "start", behavior: "smooth"});
+    }, 500);
   }
 
   bothLocationsSelected = () => {
@@ -167,7 +180,7 @@ class IndexPage extends Component {
           <div
             style={{
               margin: '0 auto',
-              padding: '0px 1.0875rem 1.45rem',
+              padding: '0px 1.0875rem 0.45rem',
               paddingTop: 0,
             }}
           >
@@ -175,6 +188,11 @@ class IndexPage extends Component {
         </div>
         { Math.abs(this.offset()) > 0 &&
             <>
+            <hr ref="results"
+              style={{
+                opacity: 0
+                }}
+            />
             <hr/>
             <p className="quote">{this.locationAName()} and {this.locationBName()} are {Math.abs(this.offset())} hours apart.</p>
             <hr/>
