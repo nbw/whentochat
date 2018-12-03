@@ -19,18 +19,31 @@ const TIME24HR = "HH:mm";
 const TIME12HR = "h:mm a";
 
 // Pull default state from the URL if available.
-const urlCoder = URLCoder.fromURL(window.location);
 
 class IndexPage extends Component {
   state = {
     timeFormat: TIME12HR,
-    locA: urlCoder.locA || {},
-    locAStart: urlCoder.locAStart || DEFAULT_START_TIME,
-    locAEnd:   urlCoder.locAEnd   || DEFAULT_END_TIME,
-    locB: urlCoder.locB || {},
-    locBStart: urlCoder.locBStart || DEFAULT_START_TIME,
-    locBEnd:   urlCoder.locBEnd || DEFAULT_END_TIME,
+    locA: 			{},
+    locAStart: 	DEFAULT_START_TIME,
+    locAEnd:   	DEFAULT_END_TIME,
+    locB: 			{},
+    locBStart:  DEFAULT_START_TIME,
+    locBEnd:   	DEFAULT_END_TIME,
   }
+
+  componentDidMount() {
+		const urlCoder = URLCoder.fromURL(window.location);
+		if (urlCoder) {
+			this.setState({
+				locA: 			urlCoder.locA,
+				locAStart: 	urlCoder.locAStart,
+				locAEnd: 		urlCoder.locAEnd,
+				locB: 			urlCoder.locB,
+				locBStart: 	urlCoder.locBStart,
+				locBEnd: 		urlCoder.locBEnd,
+			})
+		}
+	}
 
   update = (name, value) => {
     this.setState({
