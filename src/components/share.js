@@ -40,7 +40,7 @@ class Share extends Component {
   onShortenClick = async () => {
 		const shortURL = await bitly.shorten(this.state.url);
 		this.setState({
-			url: shortURL
+			url: shortURL["link"]
 		});
 	}
 
