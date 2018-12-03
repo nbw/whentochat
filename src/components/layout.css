@@ -627,22 +627,22 @@ body {
 }
 
 h1 {
-	text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 #header {
-	text-align: center;
+  text-align: center;
   padding-top: 3em;
   padding-bottom: 3em;
 }
 #header h1 {
-	font-style: italic;
-	font-size: 4.4rem;
+  font-style: italic;
+  font-size: 4.4rem;
   margin-bottom: 0.1em;
 }
 
 #header h2 {
-	font-size: 1rem;
+  font-size: 1rem;
   text-transform: uppercase;
 }
 
@@ -694,6 +694,8 @@ h1 {
 .geosuggest__item {
   list-style-type: none;
   border-bottom: solid white 2px;
+  border-left: solid white 2px;
+  border-right: solid white 2px;
   -webkit-transition: width 1.0s; /* Safari */
   transition: width 1.0s;
   margin: auto;
@@ -704,6 +706,7 @@ h1 {
 .geosuggest__item--active, .geosuggest__item:hover {
   color: #E26A6A;
   background-color: white;
+  cursor: pointer;
 }
 
 .geosuggest__suggests {
@@ -711,9 +714,9 @@ h1 {
 }
 
 .geosuggest__suggests--hidden {
-	max-height: 0;
-	overflow: hidden;
-	border-width: 0;
+  max-height: 0;
+  overflow: hidden;
+  border-width: 0;
 }
 
 @keyframes dotdotdot {
@@ -864,11 +867,11 @@ hr {
 }
 
 #share {
-	margin-bottom: 2em;
+  margin-bottom: 2em;
 }
 #share .share {
-	width: 140px;
-	margin: auto;
+  width: 140px;
+  margin: auto;
 }
 
 #share .shareBtn {
@@ -899,44 +902,44 @@ hr {
 display: none;
 }
 #share .share.active{
-	background-color: white;
-	width: 600px;
-	margin: auto;
-	padding: 0.5em 0.5em 0.5em 0.5em;
+  background-color: white;
+  width: 600px;
+  margin: auto;
+  padding: 0.5em 0.5em 0.5em 0.5em;
 }
 
 #share .url, #share .copy {
-	display: none;
+  display: none;
 }
 
 #share .active .url, #share .active .copy {
-	display: block;
+  display: block;
 }
 
 #share .url {
-	margin: 1em;
+  margin: 1em;
 }
 
 #share .url input {
-	font-size: 0.8rem;
-	text-align: center;
-	text-overflow: ellipsis;
-	color: white;
-	background-color: #E26A6A;
-	border: none;
-	display: block;
-	margin: auto;
-	width: 100%;
-	padding: 0.5em;
+  font-size: 0.8rem;
+  text-align: center;
+  text-overflow: ellipsis;
+  color: white;
+  background-color: #E26A6A;
+  border: none;
+  display: block;
+  margin: auto;
+  width: 100%;
+  padding: 0.5em;
 }
 
 #share .active .copy {
-	text-align: center;
+  text-align: center;
 }
 #share .active .copy button {
-	min-width: 100px;
-	display: inline-block;
-	margin: 5px;
+  min-width: 100px;
+  display: inline-block;
+  margin: 5px;
 
   right: 1em;
   top: 1em;
@@ -961,34 +964,34 @@ display: none;
 }
 
 #share .active .copy button:active {
-	font-weight: bold;
+  font-weight: bold;
 }
 
 @media only screen and (max-width: 900px) {
-	.locationPicker {
-		display: block;
-		margin:auto;
-		width: 100%;
-		margin-bottom: 6em;
-	}
-	.geosuggest__input-wrapper input {
-		margin: auto;
-		padding: 1rem;
-		width: 100%;
-	}
-	.geosuggest__item {
-		width: 100%,
-	}
+  .locationPicker {
+    display: block;
+    margin:auto;
+    width: 100%;
+    margin-bottom: 6em;
+  }
+  .geosuggest__input-wrapper input {
+    margin: auto;
+    padding: 1rem;
+    width: 100%;
+  }
+  .geosuggest__item {
+    width: 100%;
+  }
 
-	.time-slider {
-		width: 100%;
-	}
-	.quote {
-		font-size: 1.5rem;
-	}
-	#share .share.active {
-		width: 100%;
-	}
+  .time-slider {
+    width: 100%;
+  }
+  .quote {
+    font-size: 1.5rem;
+  }
+  #share .share.active {
+    width: 100%;
+  }
 }
 
 
