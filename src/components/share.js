@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShare, faCopy, faLink } from '@fortawesome/free-solid-svg-icons'
+import bitly from "../utils/bitly"
 
 class Share extends Component {
   state = {
@@ -36,6 +37,13 @@ class Share extends Component {
     }, 1000);
   }
 
+  onShortenClick = async () => {
+		const shortURL = await bitly.shorten(this.state.url);
+		this.setState({
+			url: shortURL
+		});
+	}
+
   render() {
     return (
       <div id="share">
@@ -52,7 +60,7 @@ class Share extends Component {
               <FontAwesomeIcon icon={faCopy} />&nbsp;
               Copy
             </button>
-            <button>
+            <button onClick={() => this.onShortenClick()}>
               <FontAwesomeIcon icon={faLink} />&nbsp;
               Shorten
             </button>
