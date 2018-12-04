@@ -39,7 +39,8 @@ const Layout = ({ children }) => (
         <meta name="twitter:creator" content="@nathanwillson" />
         <meta name="twitter:title" content="When To Chat" />
         <meta name="twitter:description" content="Reconcile time zone differences, so that chatting is easy." />
-        <meta name="twitter:image" content={banner} />
+        <meta name="twitter:image" content={'https://whentochat.co/' + banner} />
+        <meta property="og:image" content={'https://whentochat.co/' + banner}/>
       </Helmet>
       <div className='mainContainer' >
         <Header siteTitle={data.site.siteMetadata.title} siteSubtitle={data.site.siteMetadata.subtitle} />
