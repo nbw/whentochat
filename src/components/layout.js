@@ -8,7 +8,7 @@ import Footer from './footer'
 import './layout.css'
 import './fontawesomestyles.css'
 
-import { withPrefix } from 'gatsby'
+import banner from '../images/banner.png'
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -39,7 +39,7 @@ const Layout = ({ children }) => (
         <meta name="twitter:creator" content="@nathanwillson" />
         <meta name="twitter:title" content="When To Chat" />
         <meta name="twitter:description" content="Reconcile time zone differences, so that chatting is easy." />
-        <meta name="twitter:image" content={withPrefix('/banner.png')} />
+        <meta name="twitter:image" content={banner} />
       </Helmet>
       <div className='mainContainer' >
         <Header siteTitle={data.site.siteMetadata.title} siteSubtitle={data.site.siteMetadata.subtitle} />
