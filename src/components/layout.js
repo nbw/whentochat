@@ -31,7 +31,7 @@ const Layout = ({ children }) => (
         <html lang="en" />
         <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet" />
         <meta charset="utf-8"/>
-        <meta name="description" content="Time zone difference tool for finding time to chat" />
+        <meta name="description" content="Reconcile time zone differences, so that chatting is easy." />
         <meta name="keywords" content="time zone,time difference,time calculator,chat,time zone chat,when to chat,whentochat,time overlap" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
