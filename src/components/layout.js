@@ -41,31 +41,32 @@ const Layout = ({ children }) => (
         <meta name="twitter:description" content="Reconcile time zone differences, so that chatting is easy." />
         <meta name="twitter:image" content={'https://whentochat.co' + banner} />
         <meta property="og:image" content={'https://whentochat.co' + banner}/>
-      </Helmet>
-      <div className='mainContainer' >
-        <Header siteTitle={data.site.siteMetadata.title} siteSubtitle={data.site.siteMetadata.subtitle} />
-        <div
-          style={{
-            margin: '0 auto',
-            maxWidth: 1100,
-            padding: '0px 1.0875rem 1.45rem',
-            paddingTop: 0,
-          }}
-        >
-          {children}
-        </div>
-      </div>
-      <Footer
-        siteTitle={data.site.siteMetadata.title}
-        email={data.site.siteMetadata.email}
-      />
-      </>
-    )}
-  />
+				<script async src="https://www.googletagmanager.com/gtag/js?id=UA-130460716-1"></script>
+			</Helmet>
+				<div className='mainContainer' >
+					<Header siteTitle={data.site.siteMetadata.title} siteSubtitle={data.site.siteMetadata.subtitle} />
+					<div
+						style={{
+							margin: '0 auto',
+							maxWidth: 1100,
+							padding: '0px 1.0875rem 1.45rem',
+							paddingTop: 0,
+						}}
+					>
+						{children}
+					</div>
+				</div>
+				<Footer
+					siteTitle={data.site.siteMetadata.title}
+					email={data.site.siteMetadata.email}
+				/>
+				</>
+		)}
+	/>
 )
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+	children: PropTypes.node.isRequired,
 }
 
 export default Layout
