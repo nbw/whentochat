@@ -968,6 +968,10 @@ display: none;
   font-weight: bold;
 }
 
+button {
+  cursor: pointer;
+}
+
 @media only screen and (max-width: 900px) {
   .locationPicker {
     display: block;
