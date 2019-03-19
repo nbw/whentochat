@@ -1,5 +1,7 @@
 # When to chat
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/5df7bb41-a7b1-4bcc-99db-32d4ec546515/deploy-status)](https://app.netlify.com/sites/naughty-lalande-7881bb/deploys)
+
 ![banner](static/banner.png)
 
 A tool to help resolve time zone differences. 
