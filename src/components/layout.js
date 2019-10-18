@@ -9,6 +9,7 @@ import './layout.css'
 import './fontawesomestyles.css'
 
 import banner from '../images/banner.png'
+import slack from '../images/slack-logo.png'
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -41,32 +42,37 @@ const Layout = ({ children }) => (
         <meta name="twitter:description" content="Reconcile time zone differences, so that chatting is easy." />
         <meta name="twitter:image" content={'https://whentochat.co' + banner} />
         <meta property="og:image" content={'https://whentochat.co' + banner}/>
-				<script async src="https://www.googletagmanager.com/gtag/js?id=UA-130460716-1"></script>
-			</Helmet>
-				<div className='mainContainer' >
-					<Header siteTitle={data.site.siteMetadata.title} siteSubtitle={data.site.siteMetadata.subtitle} />
-					<div
-						style={{
-							margin: '0 auto',
-							maxWidth: 1100,
-							padding: '0px 1.0875rem 1.45rem',
-							paddingTop: 0,
-						}}
-					>
-						{children}
-					</div>
-				</div>
-				<Footer
-					siteTitle={data.site.siteMetadata.title}
-					email={data.site.siteMetadata.email}
-				/>
-				</>
-		)}
-	/>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130460716-1"></script>
+      </Helmet>
+        <div className='mainContainer' >
+          <div id="whentoslack">
+            <a href="https://slack.whentochat.co/" target="_blank" rel="noopener noreferrer">
+              Now integrated with <img alt="slack" src={slack}></img>
+            </a>
+          </div>
+          <Header siteTitle={data.site.siteMetadata.title} siteSubtitle={data.site.siteMetadata.subtitle} />
+          <div
+            style={{
+              margin: '0 auto',
+              maxWidth: 1100,
+              padding: '0px 1.0875rem 1.45rem',
+              paddingTop: 0,
+            }}
+          >
+            {children}
+          </div>
+        </div>
+        <Footer
+          siteTitle={data.site.siteMetadata.title}
+          email={data.site.siteMetadata.email}
+        />
+        </>
+    )}
+  />
 )
 
 Layout.propTypes = {
-	children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired,
 }
 
 export default Layout
