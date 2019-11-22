@@ -18,7 +18,7 @@ var gMaps = {
   },
   utc_offset: function(response) {
     if (response.gmaps) {
-      return response.gmaps.utc_offset;
+      return response.gmaps.utc_offset_minutes;
     } else {
       return 0;
     }
