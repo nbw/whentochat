@@ -26,16 +26,16 @@ class Footer extends Component {
             >
               About
             </Link>
-            <li>
-              <Link
-                to="/faq/"
-                style={{
-                  color: 'white',
-                }}
-              >
-                FAQ & Support
-              </Link>
-            </li>
+          </li>
+          <li>
+            <Link
+              to="/faq/"
+              style={{
+                color: 'white',
+              }}
+            >
+              FAQ & Support
+            </Link>
           </li>
         </ul>
         <ul>
