@@ -83,7 +83,7 @@ class IndexPage extends Component {
   }
 
   bothLocationsSelected = () => {
-    if ((this.state.locA) && (this.state.locB)) {
+    if ((this.state.locA.name) && (this.state.locB.name)) {
       return true;
     } else {
       return false;
