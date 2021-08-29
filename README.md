@@ -1,4 +1,7 @@
 # When to chat
+---
+## ⚠️ Archived: Please refer to https://github.com/nbw/whentwochat instead. 
+---
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/5df7bb41-a7b1-4bcc-99db-32d4ec546515/deploy-status)](https://app.netlify.com/sites/naughty-lalande-7881bb/deploys)
 
